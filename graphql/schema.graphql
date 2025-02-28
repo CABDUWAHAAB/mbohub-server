@@ -1,0 +1,33 @@
+   type Query {
+       projects: [Project!]! @all
+       project(id: ID!): Project @find
+   }
+
+   type Mutation {
+       createProject(
+           title: String!
+           description: String
+           image_path: String
+           tag: String
+       ): Project @create
+
+       updateProject(
+           id: ID!
+           title: String
+           description: String
+           image_path: String
+           tag: String
+       ): Project @update
+
+       deleteProject(id: ID!): Boolean @delete
+   }
+
+   type Project {
+       id: ID!
+       title: String!
+       description: String
+       image_path: String
+       tag: String
+       created_at: String!
+       updated_at: String!
+   }
